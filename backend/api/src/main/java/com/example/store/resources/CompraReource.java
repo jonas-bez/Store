@@ -9,19 +9,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value="/api")
+@CrossOrigin(origins = "*")
 public class CompraReource {
 
     @Autowired
     CompraRepository compraRepository;
 
     @GetMapping("/compra")
-    public List<Compra> listarProdutos(){
+    public List<Compra> listarCompr(){
         return compraRepository.findAll();
     }
 
     @PostMapping("/compra")
-    public Compra salvaProduto(@RequestBody Compra compra ){
-        System.out.print(compra);
+    public Compra salvaCompra(@RequestBody Compra compra ){
         return compraRepository.save(compra);
     }
 

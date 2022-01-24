@@ -18,11 +18,12 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+
     private String nome;
 
     private Date dataDeNascimento;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente", fetch = FetchType.LAZY)
+    @OneToMany
     private List<Compra> compras;
 }

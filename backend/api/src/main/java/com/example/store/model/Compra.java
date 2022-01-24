@@ -11,8 +11,9 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name="TB_PRODUTO")
+@Table(name="TB_COMPRA")
 public class Compra {
+    private static final long serialVersionID = 1l;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -21,8 +22,8 @@ public class Compra {
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "compras", fetch = FetchType.LAZY)
-    private List<Produto> podutos;
+    @ManyToOne
+    private Produto podutos;
 
     private int quantidade;
 
