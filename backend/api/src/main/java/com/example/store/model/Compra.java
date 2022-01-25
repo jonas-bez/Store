@@ -6,7 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -19,11 +18,11 @@ public class Compra {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
-    @ManyToOne
+    @OneToOne
     private Cliente cliente;
 
-    @ManyToOne
-    private Produto podutos;
+    @OneToOne
+    private Produto poduto;
 
     private int quantidade;
 

@@ -24,6 +24,6 @@ public class Cliente {
     private Date dataDeNascimento;
 
     @JsonIgnore
-    @OneToMany
-    private List<Compra> compras;
+    @OneToOne
+    private Compra compra;
 }

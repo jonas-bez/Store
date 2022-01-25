@@ -24,7 +24,7 @@ public class Produto implements Serializable {
     private int valor;
 
     @JsonIgnore
-    @ManyToOne
-    private Compra compras;
+    @OneToOne
+    private Compra compra;
 }
 

@@ -1,5 +1,6 @@
 package com.example.store.resources;
 
+import com.example.store.model.Cliente;
 import com.example.store.model.Compra;
 import com.example.store.repository.CompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,11 @@ public class CompraReource {
     @GetMapping("/compra")
     public List<Compra> listarCompr(){
         return compraRepository.findAll();
+    }
+
+    @GetMapping("/compra/{id}")
+    public Compra listarUmaCompra(@PathVariable(value = "id") long id){
+        return compraRepository.findById(id);
     }
 
     @PostMapping("/compra")
