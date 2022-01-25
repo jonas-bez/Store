@@ -12,5 +12,5 @@ import java.util.List;
 public interface CompraRepository extends JpaRepository<Compra, Long> {
     Compra findById(long id);
     @Query(value = "select * from tb_compra where TO_CHAR(data_compra, 'MM') =?1", nativeQuery = true)
-    List<Compra> findByMonth(@Param("month") String eventDate);
+    List<Compra> findByMonth(@Param("month") String month);
 }

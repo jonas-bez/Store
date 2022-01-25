@@ -1,5 +1,6 @@
 package com.example.store.resources;
 
+import com.example.store.controller.CompraController;
 import com.example.store.model.Cliente;
 import com.example.store.model.Compra;
 import com.example.store.repository.CompraRepository;
@@ -30,6 +31,12 @@ public class CompraReource {
     @GetMapping("/compra/data/{month}")
     public List<Compra> listarUmaCompra(@PathVariable(value = "month") String month){
         return compraRepository.findByMonth(month);
+    }
+
+    @GetMapping("/compra/ganhador/{month}")
+    public Cliente listarUmGanhador(@PathVariable(value = "month") String month){
+        List<Compra> compras = compraRepository.findByMonth(month);
+        return CompraController.getGanhador(compras);
     }
 
     @PostMapping("/compra")
