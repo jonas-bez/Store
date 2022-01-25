@@ -6,6 +6,7 @@ import com.example.store.repository.CompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -24,6 +25,11 @@ public class CompraReource {
     @GetMapping("/compra/{id}")
     public Compra listarUmaCompra(@PathVariable(value = "id") long id){
         return compraRepository.findById(id);
+    }
+
+    @GetMapping("/compra/data/{month}")
+    public List<Compra> listarUmaCompra(@PathVariable(value = "month") String month){
+        return compraRepository.findByMonth(month);
     }
 
     @PostMapping("/compra")
